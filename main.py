@@ -71,7 +71,7 @@ class Client(commands.Bot):
                 await self.load_extension(cog_name)
 
 
-_webServer.keep_alive()
+
 if __name__ == "__main__":
     async def main():
         bot = Client()
