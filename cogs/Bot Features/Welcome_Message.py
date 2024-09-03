@@ -20,7 +20,7 @@ class WelcomeCog(commands.Cog):
             name="Verification Process",
             value="To complete your verification, Match Server Name to In-game Name and Wait for an Admin to Contact "
                   "you. Once you're Verified Please head over to "
-                  "https://discord.com/channels/1041205088657616898/1236511626681778176 and Fill out the Guild "
+                  "https://discord.com/channels/1271649288791003217/1271673857136267346 and Fill out the Guild "
                   "Applications"
 
         )
