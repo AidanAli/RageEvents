@@ -15,7 +15,7 @@ class Treasure_Hunt_Event(commands.Cog):
         self.client = client
         self.scheduler = AsyncIOScheduler(timezone=pytz.timezone('US/Eastern'))
         self.scheduler.start()
-        Merchants_Day = AndTrigger([CronTrigger(hour=23, minute=44, day_of_week='tue,sat', timezone=pytz.timezone('US/Eastern'))])
+        Merchants_Day = AndTrigger([CronTrigger(hour=23, minute=44, day_of_week='wed', timezone=pytz.timezone('US/Eastern'))])
         self.scheduler.add_job(self.send_message, Merchants_Day)
 
     async def send_message(self):
