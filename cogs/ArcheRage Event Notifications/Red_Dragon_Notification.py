@@ -10,21 +10,21 @@ from discord import Embed
 from main import event_Ping
 
 
-class RedDragonTimer(commands.Cog):
+class _RedDragonTimer(commands.Cog):
     def __init__(self, client):
         self.client = client
         self.scheduler = AsyncIOScheduler(timezone=pytz.timezone('US/Eastern'))
         self.scheduler.start()
-        firstRD = AndTrigger([CronTrigger(hour=7, minute=14, day_of_week='mon,tue,wed,thu,fri,sat,sun',
+        firstRD = AndTrigger([CronTrigger(hour=7, minute=14, day_of_week='sun,mon,wed,fri',
                                           timezone=pytz.timezone('US/Eastern'))])
-        secondRD = AndTrigger([CronTrigger(hour=10, minute=44, day_of_week='mon,tue,wed,thu,fri,sat,sun',
+        secondRD = AndTrigger([CronTrigger(hour=10, minute=44, day_of_week='sun,mon,wed,fri',
                                            timezone=pytz.timezone('US/Eastern'))])
-        thirdRDn = AndTrigger([CronTrigger(hour=19, minute=44, day_of_week='mon,tue,wed,thu,fri,sat,sun',
-                                           timezone=pytz.timezone('US/Eastern'))])
+        thirdRD = AndTrigger([CronTrigger(hour=19, minute=44, day_of_week='sun,mon,wed,fri',
+                                          timezone=pytz.timezone('US/Eastern'))])
 
         self.scheduler.add_job(self.send_message, firstRD)
         self.scheduler.add_job(self.send_message, secondRD)
-        self.scheduler.add_job(self.send_message, thirdRDn)
+        self.scheduler.add_job(self.send_message, thirdRD)
 
     async def send_message(self):
         channel = self.client.get_channel(event_Ping)  # replace with your channel ID
@@ -33,13 +33,13 @@ class RedDragonTimer(commands.Cog):
         embed.set_thumbnail(
             url="https://1000logos.net/wp-content/uploads/2020/09/ArcheAge-logo.png")
 
-        self.client.loop.create_task(channel.send("@everyone",embed=embed))
+        self.client.loop.create_task(channel.send("@Event Pings", embed=embed))
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print("Red_Dragon_Notification Loaded")
+        print("_RedDragonTimer Loaded")
         self.scheduler.start()
 
 
 async def setup(client):
-    await client.add_cog(RedDragonTimer(client))
+    await client.add_cog(_RedDragonTimer(client))

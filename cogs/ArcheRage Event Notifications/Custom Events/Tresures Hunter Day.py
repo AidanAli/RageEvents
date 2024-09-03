@@ -10,7 +10,7 @@ from discord import Embed
 from main import event_Ping
 
 
-class Treasure_Hunt_Event(commands.Cog):
+class _TreasureHuntersDay(commands.Cog):
     def __init__(self, client):
         self.client = client
         self.scheduler = AsyncIOScheduler(timezone=pytz.timezone('US/Eastern'))
@@ -27,13 +27,13 @@ class Treasure_Hunt_Event(commands.Cog):
         embed.add_field(
             name="Event Details",value="https://na.archerage.to/forums/threads/game-event-treasures-hunter-day.8637/")
 
-        self.client.loop.create_task(channel.send(embed=embed))
+        self.client.loop.create_task(channel.send("@Event Pings",embed=embed))
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print("Treasure_Hunt_ Loaded")
+        print("_TreasureHuntersDay Loaded")
         self.scheduler.start()
 
 
 async def setup(client):
-    await client.add_cog(Treasure_Hunt_Event(client))
+    await client.add_cog(_TreasureHuntersDay(client))

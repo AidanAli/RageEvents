@@ -34,9 +34,9 @@ class shipsApplication(commands.Cog):
     @commands.has_permissions(manage_messages=True)  # Permission Settings
     async def ships(self, ctx):
         embed = discord.Embed(title="Ship Application",
-                              description="Flawless Ship Application")
+                              description="East Faction Ship Application")
         embed.set_image(url="https://github.com/Moonsight91/discrap/blob/main/enoan.png?raw=true")
-        embed.add_field(name=f" (ONLY) Select Ships That you Own", value="**Vehicle List**\n"
+        embed.add_field(name=f" (ONLY) Select Ships That you Own", value="**Ship List**\n"
                                                                            "- Enoan\n"
                                                                            "- Growling Yawl\n"
                                                                            "- Lutesong Junk\n"

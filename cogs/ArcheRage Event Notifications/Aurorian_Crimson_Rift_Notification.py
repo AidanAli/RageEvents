@@ -10,7 +10,7 @@ from discord import Embed
 from main import event_Ping
 
 
-class AurorianCR(commands.Cog):
+class _AurorianRift(commands.Cog):
     def __init__(self, client):
         self.client = client
         self.scheduler = AsyncIOScheduler(timezone=pytz.timezone('US/Eastern'))
@@ -38,13 +38,13 @@ class AurorianCR(commands.Cog):
         embed.set_thumbnail(
             url="https://1000logos.net/wp-content/uploads/2020/09/ArcheAge-logo.png")
 
-        self.client.loop.create_task(channel.send("@everyone",embed=embed))
+        self.client.loop.create_task(channel.send("@Event Pings",embed=embed))
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print("Aurorian_Crimson_Rift_Notification Loaded")
+        print("_AurorianRift Loaded")
         self.scheduler.start()
 
 
 async def setup(client):
-    await client.add_cog(AurorianCR(client))
+    await client.add_cog(_AurorianRift(client))

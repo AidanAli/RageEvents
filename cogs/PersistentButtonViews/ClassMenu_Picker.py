@@ -11,10 +11,11 @@ class SelectMenu(discord.ui.View):
     options = [
         discord.SelectOption(label="Archer", value="1", description="Archery Main Class"),
         discord.SelectOption(label="Gunner", value="2", description="Gunner Main Class"),
-        discord.SelectOption(label="Healer", value="3", description="Vitalism Main Class"),
-        discord.SelectOption(label="Mage", value="4", description="Sorcery Main Class"),
-        discord.SelectOption(label="Melee", value="5", description="Battlerage Main Class"),
-        discord.SelectOption(label="Tank", value="6", description="Defensive or CC Specs")
+        discord.SelectOption(label="Dancer", value="3", description="Spelldance Main Class"),
+        discord.SelectOption(label="Healer", value="4", description="Vitalism Main Class"),
+        discord.SelectOption(label="Mage", value="5", description="Sorcery Main Class"),
+        discord.SelectOption(label="Melee", value="6", description="Battlerage Main Class"),
+        discord.SelectOption(label="Tank", value="7", description="Defensive or CC Specs")
     ]
 
     @discord.ui.select(placeholder="Select Class", options=options, custom_id="Select_Role")
@@ -26,12 +27,13 @@ class SelectMenu(discord.ui.View):
 
         # Define your role IDs corresponding to the options
         role_ids = {
-            '1': 1213997273495638076,  # Replace with your role ID
-            '2': 1214026120752537660,
-            '3': 1214026644214386700,
-            '4': 1214026671934410762,
-            '5': 1214026693707173910,
-            '6': 1214026710782316594
+            '1': 1280552555642093690,  # Replace with your role ID
+            '2': 1280552557055447070,
+            '3': 1280552556224839763,
+            '4': 1280552557436993648,
+            '5': 1280552558246760523,
+            '6': 1280553089543176222,
+            '7': 1280553092605022307
         }
 
         role_id = role_ids.get(selected_value)

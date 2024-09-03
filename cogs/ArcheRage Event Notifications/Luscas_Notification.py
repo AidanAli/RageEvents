@@ -10,7 +10,7 @@ from discord import Embed
 from main import event_Ping
 
 
-class luscasTimer(commands.Cog):
+class _LuscasAwakening(commands.Cog):
     def __init__(self, client):
         self.client = client
         self.scheduler = AsyncIOScheduler(timezone=pytz.timezone('US/Eastern'))
@@ -28,13 +28,13 @@ class luscasTimer(commands.Cog):
         embed.set_thumbnail(
             url="https://1000logos.net/wp-content/uploads/2020/09/ArcheAge-logo.png")
 
-        self.client.loop.create_task(channel.send("@everyone",embed=embed))
+        self.client.loop.create_task(channel.send("@Event Pings",embed=embed))
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print("Luscas_Notification_Loaded")
+        print("_LuscasAwakening Loaded")
         self.scheduler.start()
 
 
 async def setup(client):
-    await client.add_cog(luscasTimer(client))
+    await client.add_cog(_LuscasAwakening(client))

@@ -10,7 +10,7 @@ from discord import Embed
 from main import event_Ping
 
 
-class Hasla_Zombies(commands.Cog):
+class _HaslaZombies(commands.Cog):
     def __init__(self, client):
         self.client = client
         self.scheduler = AsyncIOScheduler(timezone=pytz.timezone('US/Eastern'))
@@ -30,13 +30,13 @@ class Hasla_Zombies(commands.Cog):
             name="Event Details",
             value="https://na.archerage.to/forums/threads/game-event-hasla-zombie-apocalypse.4536/")
 
-        self.client.loop.create_task(channel.send("@everyone",embed=embed))
+        self.client.loop.create_task(channel.send("@Event Pings",embed=embed))
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print("Hazla_Zombies_Event_Notification Loaded")
+        print("_HaslaZombies Loaded")
         self.scheduler.start()
 
 
 async def setup(client):
-    await client.add_cog(Hasla_Zombies(client))
+    await client.add_cog(_HaslaZombies(client))

@@ -10,7 +10,7 @@ from discord import Embed
 from main import event_Ping
 
 
-class Dragon_Hunt(commands.Cog):
+class _RelentlessDragonsHunt(commands.Cog):
     def __init__(self, client):
         self.client = client
         self.scheduler = AsyncIOScheduler(timezone=pytz.timezone('US/Eastern'))
@@ -30,13 +30,13 @@ class Dragon_Hunt(commands.Cog):
             name="Event Details",
             value="https://na.archerage.to/forums/threads/game-event-relentless-dragons-hunt.9599/")
 
-        self.client.loop.create_task(channel.send(embed=embed))
+        self.client.loop.create_task(channel.send("@Event Pings",embed=embed))
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print("Relentless_Dragons_Hunt Loaded")
+        print("_RelentlessDragonsHunt Loaded")
         self.scheduler.start()
 
 
 async def setup(client):
-    await client.add_cog(Dragon_Hunt(client))
+    await client.add_cog(_RelentlessDragonsHunt(client))

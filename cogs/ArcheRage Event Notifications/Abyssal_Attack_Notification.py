@@ -10,7 +10,7 @@ from discord import Embed
 from main import event_Ping
 
 
-class abyssal_Attack(commands.Cog):
+class _AbyssalAttack(commands.Cog):
     def __init__(self, client):
         self.client = client
         self.scheduler = AsyncIOScheduler(timezone=pytz.timezone('US/Eastern'))
@@ -30,13 +30,13 @@ class abyssal_Attack(commands.Cog):
         embed.set_thumbnail(
             url="https://1000logos.net/wp-content/uploads/2020/09/ArcheAge-logo.png")
 
-        self.client.loop.create_task(channel.send("@everyone",embed=embed))
+        self.client.loop.create_task(channel.send("@Event Pings",embed=embed))
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print("Abyssal_Attack_Notification Loaded")
+        print("_AbyssalAttack Loaded")
         self.scheduler.start()
 
 
 async def setup(client):
-    await client.add_cog(abyssal_Attack(client))
+    await client.add_cog(_AbyssalAttack(client))

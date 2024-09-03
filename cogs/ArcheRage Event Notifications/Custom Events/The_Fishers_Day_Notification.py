@@ -10,7 +10,7 @@ from discord import Embed
 from main import event_Ping
 
 
-class Fishers_Day(commands.Cog):
+class _FishersDay(commands.Cog):
     def __init__(self, client):
         self.client = client
         self.scheduler = AsyncIOScheduler(timezone=pytz.timezone('US/Eastern'))
@@ -27,13 +27,13 @@ class Fishers_Day(commands.Cog):
         embed.add_field(
             name="Event Details",value="https://na.archerage.to/forums/threads/game-event-the-fishers-day.8577/")
 
-        self.client.loop.create_task(channel.send(embed=embed))
+        self.client.loop.create_task(channel.send("@Event Pings",embed=embed))
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print("Fishers_Day_loaded")
+        print("_FishersDay loaded")
         self.scheduler.start()
 
 
 async def setup(client):
-    await client.add_cog(Fishers_Day(client))
+    await client.add_cog(_FishersDay(client))

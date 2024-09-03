@@ -31,7 +31,7 @@ class vehicleApplication(commands.Cog):
     @commands.has_permissions(manage_messages=True)  # Permission Settings
     async def vehicle(self, ctx):
         embed = discord.Embed(title="Vehicle Application",
-                              description="Flawless Vehicle Application")
+                              description="East Faction Vehicle Application")
         embed.add_field(name=" (ONLY) Select Vehicles That you Own", value="**Vehicle List**\n"
                                                                            "- Iron CLad\n"
                                                                            "- Wheeled Mortar\n"

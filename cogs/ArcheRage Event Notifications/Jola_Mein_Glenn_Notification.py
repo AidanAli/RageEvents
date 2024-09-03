@@ -10,7 +10,7 @@ from discord import Embed
 from main import event_Ping
 
 
-class JMG(commands.Cog):
+class _JMG(commands.Cog):
     def __init__(self, client):
         self.client = client
         self.scheduler = AsyncIOScheduler(timezone=pytz.timezone('US/Eastern'))
@@ -29,13 +29,13 @@ class JMG(commands.Cog):
         embed.set_thumbnail(
             url="https://1000logos.net/wp-content/uploads/2020/09/ArcheAge-logo.png")
 
-        self.client.loop.create_task(channel.send("@everyone",embed=embed))
+        self.client.loop.create_task(channel.send("@Event Pings",embed=embed))
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print("Jola_Mein_Glenn_Notification Loaded")
+        print("Jola_Mein_Glenn Loaded")
         self.scheduler.start()
 
 
 async def setup(client):
-    await client.add_cog(JMG(client))
+    await client.add_cog(_JMG(client))

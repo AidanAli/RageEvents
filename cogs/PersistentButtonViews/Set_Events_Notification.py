@@ -28,7 +28,7 @@ class ArcheRage_Event_Notification(discord.ui.View):
     # This is the persistent B
     @discord.ui.button(label="Set Event Notification", custom_id="Notif", style=discord.ButtonStyle.blurple)
     async def button1(self, interaction, button):
-        role_id = 1241128273149300778
+        role_id = 1273834247764840510
         user = interaction.user
         role = interaction.guild.get_role(role_id)
         if role:

@@ -10,7 +10,7 @@ from discord import Embed
 from main import event_Ping
 
 
-class WonderLand_races(commands.Cog):
+class _WonderlandRaces(commands.Cog):
     def __init__(self, client):
         self.client = client
         self.scheduler = AsyncIOScheduler(timezone=pytz.timezone('US/Eastern'))
@@ -30,13 +30,13 @@ class WonderLand_races(commands.Cog):
             name="Event Details",
             value="https://na.archerage.to/forums/threads/game-event-wonderland-races.11055/")
 
-        self.client.loop.create_task(channel.send(embed=embed))
+        self.client.loop.create_task(channel.send("@Event Pings",embed=embed))
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print("Wonderland_Race Loaded")
+        print("_WonderlandRaces Loaded")
         self.scheduler.start()
 
 
 async def setup(client):
-    await client.add_cog(WonderLand_races(client))
+    await client.add_cog(_WonderlandRaces(client))
