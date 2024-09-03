@@ -4,7 +4,7 @@ import discord
 from discord.ext import commands
 from dotenv import load_dotenv
 
-
+import _webServer
 from cogs.PersistentButtonViews.Set_Events_Notification import ArcheRage_Event_Notification
 from cogs.PersistentButtonViews.Support_TicketSystem import SupportView
 from cogs.PersistentButtonViews.Ship_Embed_Application import ShipButtons
@@ -71,10 +71,12 @@ class Client(commands.Bot):
                 await self.load_extension(cog_name)
 
 
+_webServer.keep_alive()
 if __name__ == "__main__":
     async def main():
         bot = Client()
         await bot.load_cogs()
+        _webServer.keep_alive()
         await bot.start(DISCORD_TOKEN)
 
 
