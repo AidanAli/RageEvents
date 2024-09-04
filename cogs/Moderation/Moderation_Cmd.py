@@ -22,13 +22,12 @@ class Utility(commands.Cog):
     async def ping(self, interactions: discord.Interaction):
         await interactions.response.send_message(f'Pong! {round(self.client.latency * 1000)}ms')
 
-    @app_commands.command(name="edit-channel-name", description="Edit a channel's name", )
-    @commands.has_any_role("Admin,Discord Helper")  #
-    async def edit_channel_name(self, interactions: discord.Interaction, channel: discord.VoiceChannel, name: str):
+    @app_commands.command(name="edit-channel-name", description="Edit a channel's name")
+    @commands.has_role("Discord Helper")
+    async def edit_channel_name(self, interaction: discord.Interaction, channel: discord.VoiceChannel, name: str):
         await channel.edit(name=name)
-        await interactions.response.send_message(f"Channel name changed to {name}")
+        await interaction.response.send_message(f"Channel name changed to {name}")
 
-    from discord.ext import commands
 
     @app_commands.command(name='clear', description='Deletes a Set Amount of Messages')
     @commands.cooldown(1, 30, commands.BucketType.guild)  # 1 use per 30 seconds per guild
