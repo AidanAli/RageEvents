@@ -23,10 +23,31 @@ class Utility(commands.Cog):
         await interactions.response.send_message(f'Pong! {round(self.client.latency * 1000)}msnbc')
 
     @app_commands.command(name="edit-channel-name", description="Edit a channel's name")
-    @commands.has_role("Discord Helper")
     async def edit_channel_name(self, interaction: discord.Interaction, channel: discord.VoiceChannel, name: str):
-        await channel.edit(name=name)
-        await interaction.response.send_message(f"Channel name changed to {name}")
+        try:
+            guild = interaction.guild
+            executor = guild.get_member(interaction.user.id)
+
+            # Define the required roles
+            required_roles = ["Admin"]
+
+            # Check if the user has any of the required roles
+            if not any(discord.utils.get(guild.roles, name=role) in executor.roles for role in required_roles):
+                # Additional checks for administrator or server owner
+                if not executor.guild_permissions.administrator and executor.id != guild.owner_id:
+                    await interaction.response.send_message(
+                        "You don't have the required permissions to use this command.", ephemeral=True)
+                    return
+
+            await channel.edit(name=name)
+            await interaction.response.send_message(f"Channel name changed to {name}")
+
+        except discord.Forbidden:
+            await interaction.response.send_message("I don't have sufficient permissions to edit the channel name.",
+                                                    ephemeral=True)
+        except Exception as e:
+            await interaction.response.send_message(f"An error occurred: {e}", ephemeral=True)
+
 
 
     @app_commands.command(name='clear', description='Deletes a Set Amount of Messages')

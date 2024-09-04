@@ -75,7 +75,6 @@ class TicketSystem(commands.Cog):
     @commands.command()
     @commands.has_any_role("Admin,Discord Helper")  # Restrict to users with the "popcorn" role
     async def close_ticket(self, ctx, channel: discord.TextChannel):
-        """Closes a ticket channel. Only users with the 'popcorn' role can use this command."""
         if channel.id in self.tickets:
             user_id = self.tickets.pop(channel.id)
             # Decrease the ticket count for the user
