@@ -30,7 +30,7 @@ class _AkashInvasion(commands.Cog):
         embed.set_thumbnail(
             url="https://1000logos.net/wp-content/uploads/2020/09/ArcheAge-logo.png")
 
-        self.client.loop.create_task(channel.send("@Event Pings",embed=embed))
+        self.client.loop.create_task(channel.send(f"<@&{1273834247764840510}>",embed=embed))
 
     @commands.Cog.listener()
     async def on_ready(self):

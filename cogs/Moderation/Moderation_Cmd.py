@@ -20,7 +20,7 @@ class Utility(commands.Cog):
 
     @app_commands.command(name="ping", description="Ping Slash")
     async def ping(self, interactions: discord.Interaction):
-        await interactions.response.send_message(f'Pong! {round(self.client.latency * 1000)}msnbc')
+        await interactions.response.send_message(f'Pong! {round(self.client.latency * 1000)}ms')
 
     @app_commands.command(name="edit-channel-name", description="Edit a channel's name")
     async def edit_channel_name(self, interaction: discord.Interaction, channel: discord.VoiceChannel, name: str):
@@ -39,7 +39,7 @@ class Utility(commands.Cog):
                         "You don't have the required permissions to use this command.", ephemeral=True)
                     return
 
-            await channel.edit(name=name)
+            await interaction.channel.edit(name=name)
             await interaction.response.send_message(f"Channel name changed to {name}")
 
         except discord.Forbidden:
@@ -47,7 +47,6 @@ class Utility(commands.Cog):
                                                     ephemeral=True)
         except Exception as e:
             await interaction.response.send_message(f"An error occurred: {e}", ephemeral=True)
-
 
 
     @app_commands.command(name='clear', description='Deletes a Set Amount of Messages')

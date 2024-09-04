@@ -27,7 +27,7 @@ class _FishersDay(commands.Cog):
         embed.add_field(
             name="Event Details",value="https://na.archerage.to/forums/threads/game-event-the-fishers-day.8577/")
 
-        self.client.loop.create_task(channel.send("@Event Pings",embed=embed))
+        self.client.loop.create_task(channel.send(f"<@&{1273834247764840510}>",embed=embed))
 
     @commands.Cog.listener()
     async def on_ready(self):
