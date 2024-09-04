@@ -20,7 +20,7 @@ class Utility(commands.Cog):
 
     @app_commands.command(name="ping", description="Ping Slash")
     async def ping(self, interactions: discord.Interaction):
-        await interactions.response.send_message(f'Pong! {round(self.client.latency * 1000)}ms')
+        await interactions.response.send_message(f'Pong! {round(self.client.latency * 1000)}msnbc')
 
     @app_commands.command(name="edit-channel-name", description="Edit a channel's name")
     @commands.has_role("Discord Helper")
