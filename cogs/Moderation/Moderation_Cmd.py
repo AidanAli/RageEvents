@@ -23,6 +23,7 @@ class Utility(commands.Cog):
         await interactions.response.send_message(f'Pong! {round(self.client.latency * 1000)}ms')
 
     @app_commands.command(name="edit-channel-name", description="Edit a channel's name", )
+    @commands.has_any_role("Admin,Discord Helper")  #
     async def edit_channel_name(self, interactions: discord.Interaction, channel: discord.VoiceChannel, name: str):
         await channel.edit(name=name)
         await interactions.response.send_message(f"Channel name changed to {name}")
