@@ -38,8 +38,7 @@ class Utility(commands.Cog):
                     await interaction.response.send_message(
                         "You don't have the required permissions to use this command.", ephemeral=True)
                     return
-
-            await interaction.channel.edit(name=name)
+            await channel.edit(name=name)
             await interaction.response.send_message(f"Channel name changed to {name}")
 
         except discord.Forbidden:
