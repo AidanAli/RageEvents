@@ -2,7 +2,6 @@ import discord
 from discord.ext import commands
 from discord import app_commands
 
-from main import Guild_ID
 
 
 class YourCogName(commands.Cog):
