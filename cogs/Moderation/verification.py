@@ -29,4 +29,4 @@ class YourCogName(commands.Cog):
 
 
 async def setup(bot):
-    await bot.add_cog(YourCogName(bot), guilds=[discord.Object(id=Guild_ID)])
+    await bot.add_cog(YourCogName(bot), guilds=[discord.Object(id="1271649288791003217")])
