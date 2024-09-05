@@ -18,7 +18,7 @@ class YourCogName(commands.Cog):
                               description=f"{member.mention}",
                               color=discord.Color.blurple())
         embed.add_field(name="Guild:", value=f"`<{guild_name}>`", inline=True)
-        embed.add_field(name="In-game Name:", value=f"`{game_name}`", inline=True)
+        embed.add_field(name="In-game Name:", value=f"`{in_game_name}`", inline=True)
 
         # Set the image URL from the attachment
         embed.set_image(url=character_info.url)
