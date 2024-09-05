@@ -9,7 +9,7 @@ class YourCogName(commands.Cog):
         self.bot = bot
 
     @app_commands.command(name="verify", description="Verify your Discord Account")
-    async def verification(self, interaction, game_name: str, guild_name: str, character_info: discord.Attachment):
+    async def verification(self, interaction, in_game_name: str, guild_name: str, character_info: discord.Attachment):
         # Fetch the member who used the command
         member = interaction.user
 
