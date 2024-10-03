@@ -12,6 +12,7 @@ from cogs.PersistentButtonViews.Ship_Embed_Application import ShipButtons
 from cogs.PersistentButtonViews.Vehicle_Embed_Application import VehicleButtons
 
 config = ConfigParser()
+config.read('config.ini')
 load_dotenv()
 
 # Config.ini configurations(Change the settings)
