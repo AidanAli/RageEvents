@@ -6,8 +6,8 @@ from apscheduler.triggers.combining import AndTrigger
 from apscheduler.triggers.cron import CronTrigger
 from datetime import datetime
 from discord import Embed
-
-from main import event_Ping
+from main import event_pings
+from main import allow_ping_role
 
 
 class _WonderlandRaces(commands.Cog):
@@ -20,7 +20,7 @@ class _WonderlandRaces(commands.Cog):
         self.scheduler.add_job(self.send_message, Merchants_Day)
 
     async def send_message(self):
-        channel = self.client.get_channel(event_Ping)  # replace with your channel ID
+        channel = self.client.get_channel(event_pings)  # replace with your channel ID
         embed = Embed(title="Wonderland Races", description="Starts in`15`Minutes!",
                       color=0x00FF00)
         embed.set_image(url="https://i.ibb.co/X3qfnMh/Wonderland-Races-Banner.png")
@@ -30,7 +30,7 @@ class _WonderlandRaces(commands.Cog):
             name="Event Details",
             value="https://na.archerage.to/forums/threads/game-event-wonderland-races.11055/")
 
-        self.client.loop.create_task(channel.send(f"<@&{1273834247764840510}>",embed=embed))
+        self.client.loop.create_task(channel.send(f"<@&{allow_ping_role}>",embed=embed))
 
     @commands.Cog.listener()
     async def on_ready(self):

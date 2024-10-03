@@ -6,7 +6,7 @@ from configparser import ConfigParser
 config = ConfigParser()
 config.read('config.ini')
 
-DatabaseFile = config['Database']['name']
+DatabaseFile = config['Database']['DBName']
 
 # SQLite3 database connection
 conn = sqlite3.connect(DatabaseFile)

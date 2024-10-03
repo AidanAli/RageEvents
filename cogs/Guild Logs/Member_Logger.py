@@ -9,7 +9,7 @@ from configparser import ConfigParser
 config = ConfigParser()
 config.read('config.ini')
 
-DatabaseFile = config['BotSettings']['ArcheRageDatabase']
+DatabaseFile = config['Database']['DBName']
 
 
 class MessageLogger(commands.Cog):

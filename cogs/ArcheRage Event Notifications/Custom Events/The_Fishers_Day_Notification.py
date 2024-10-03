@@ -6,8 +6,8 @@ from apscheduler.triggers.combining import AndTrigger
 from apscheduler.triggers.cron import CronTrigger
 from datetime import datetime
 from discord import Embed
-
-from main import event_Ping
+from main import event_pings
+from main import allow_ping_role
 
 
 class _FishersDay(commands.Cog):
@@ -19,7 +19,7 @@ class _FishersDay(commands.Cog):
         self.scheduler.add_job(self.send_message, Merchants_Day)
 
     async def send_message(self):
-        channel = self.client.get_channel(event_Ping)  # replace with your channel ID
+        channel = self.client.get_channel(event_pings)  # replace with your channel ID
         embed = Embed(title="The Fishers Day!", description="Started ! Grab your Quests", color=0x00FF00)
         embed.set_image(url="https://i.ibb.co/8mGwXRF/lDFskgo.png")
         embed.set_thumbnail(
@@ -27,7 +27,7 @@ class _FishersDay(commands.Cog):
         embed.add_field(
             name="Event Details",value="https://na.archerage.to/forums/threads/game-event-the-fishers-day.8577/")
 
-        self.client.loop.create_task(channel.send(f"<@&{1273834247764840510}>",embed=embed))
+        self.client.loop.create_task(channel.send(f"<@&{allow_ping_role}>",embed=embed))
 
     @commands.Cog.listener()
     async def on_ready(self):

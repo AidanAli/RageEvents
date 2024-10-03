@@ -10,7 +10,7 @@ from main import guild_id
 config = ConfigParser()
 config.read('config.ini')
 
-DatabaseFile = config['BotSettings']['ArcheRageDatabase']
+DatabaseFile = config['Database']['DBName']
 
 
 class MemberLogger(commands.Cog):
