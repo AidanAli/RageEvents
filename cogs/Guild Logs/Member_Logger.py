@@ -3,6 +3,7 @@ from discord import app_commands
 from discord.ext import commands
 import sqlite3
 from datetime import datetime
+from main import guild_id
 import pytz
 
 
@@ -119,4 +120,4 @@ class MessageLogger(commands.Cog):
 
 async def setup(client):
     db_file = 'discord_bot.db'
-    await client.add_cog(MessageLogger(client, db_file),guilds=[discord.Object(id="1271649288791003217")])
+    await client.add_cog(MessageLogger(client, db_file),guilds=[discord.Object(id=guild_id)])

@@ -7,7 +7,8 @@ from apscheduler.triggers.cron import CronTrigger
 from datetime import datetime
 from discord import Embed
 
-from main import event_Ping
+from main import event_pings
+from main import allow_ping_role
 
 
 class _BlackDragon(commands.Cog):
@@ -24,13 +25,13 @@ class _BlackDragon(commands.Cog):
         self.scheduler.add_job(self.send_message, sunMorning)
 
     async def send_message(self):
-        channel = self.client.get_channel(event_Ping)  # replace with your channel ID
+        channel = self.client.get_channel(event_pings)  # replace with your channel ID
         embed = Embed(title="Black Dragon", description="Starts in 15 mins", color=0xff0000)
         embed.set_image(url="https://cdn.uc.assets.prezly.com/526b1c74-914d-4515-995d-abb65dcd82ee/-/preview/1200x1200/-/format/auto/")
         embed.set_thumbnail(
             url="https://1000logos.net/wp-content/uploads/2020/09/ArcheAge-logo.png")
 
-        self.client.loop.create_task(channel.send(f"<@&{1273834247764840510}>",embed=embed))
+        self.client.loop.create_task(channel.send(f"<@&{allow_ping_role}>",embed=embed))
 
     @commands.Cog.listener()
     async def on_ready(self):

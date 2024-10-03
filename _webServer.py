@@ -1,5 +1,11 @@
 from flask import Flask
 from threading import Thread
+from configparser import ConfigParser
+
+config = ConfigParser()
+
+# Config.ini WebServerSettings
+host = config["WebServerSettings"]['host']
 
 app = Flask('')
 
@@ -10,7 +16,7 @@ def home():
 
 
 def run():
-    app.run(host="0.0.0.0", port=8080)
+    app.run(host=host, port=8080)
 
 
 def keep_alive():

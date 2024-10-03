@@ -4,16 +4,24 @@ import discord
 from discord.ext import commands
 from dotenv import load_dotenv
 
+from configparser import ConfigParser
 import _webServer
 from cogs.PersistentButtonViews.Set_Events_Notification import ArcheRage_Event_Notification
 from cogs.PersistentButtonViews.Support_TicketSystem import SupportView
 from cogs.PersistentButtonViews.Ship_Embed_Application import ShipButtons
 from cogs.PersistentButtonViews.Vehicle_Embed_Application import VehicleButtons
 
-DISCORD_TOKEN = os.environ['discordtoken']
-event_Ping = 1271666990305775656
-
+config = ConfigParser()
 load_dotenv()
+
+# Config.ini configurations(Change the settings)
+guild_id = config['BotSettings']['Guild_Id']
+event_pings = config['BotSettings']['Event_Pings']
+allow_ping_role = config['BotSettings']['allow_ping_role']
+blacklisted_words = config['BotSettings']['BlackListedWords']
+# Discord Token
+DISCORD_TOKEN = os.environ['discordtoken']
+
 
 intents = discord.Intents.all()
 
@@ -50,7 +58,7 @@ class Client(commands.Bot):
         )
 
         try:
-            synced = await self.tree.sync(guild=discord.Object(id=1271649288791003217))
+            synced = await self.tree.sync(guild=discord.Object(id=guild_id))
             print(f"{len(synced)} command(s)")
         except Exception as e:
             print(e)

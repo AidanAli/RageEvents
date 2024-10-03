@@ -10,7 +10,7 @@ class Roles(commands.Cog):
     @commands.command()
     @commands.has_permissions(manage_messages=True)  # Adjust permissions as needed
     async def d(self, ctx):
-        embed = discord.Embed(title="Welcome to No Hard Feelings Discord Server",
+        embed = discord.Embed(title="ArcheRage Event Pings",
                               description="Click the Button below if you would like to receive Event Pings")
         embed.set_image(url="https://static.wikia.nocookie.net/archeage/images/a/a8/Marianople_ingame.jpg/revision/latest/scale-to-width-down/1000?cb=20140809202321")
         message = await ctx.send(embed=embed, view=ArcheRage_Event_Notification())

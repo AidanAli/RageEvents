@@ -7,7 +7,8 @@ from apscheduler.triggers.cron import CronTrigger
 from datetime import datetime
 from discord import Embed
 
-from main import event_Ping
+from main import event_pings
+from main import allow_ping_role
 
 
 class _LuscasAwakening(commands.Cog):
@@ -22,13 +23,13 @@ class _LuscasAwakening(commands.Cog):
         self.scheduler.add_job(self.send_message, secondLuscas)
 
     async def send_message(self):
-        channel = self.client.get_channel(event_Ping)  # replace with your channel ID
+        channel = self.client.get_channel(event_pings)  # replace with your channel ID
         embed = Embed(title="Luscas Awakening", description="**Spawns in 15 Minutes**", color=0xff0000)
         embed.set_image(url="https://static.wikia.nocookie.net/archeage_gamepedia/images/e/e6/Luscas_Awakening.jpg/revision/latest/scale-to-width-down/1000?cb=20191203154420")
         embed.set_thumbnail(
             url="https://1000logos.net/wp-content/uploads/2020/09/ArcheAge-logo.png")
 
-        self.client.loop.create_task(channel.send(f"<@&{1273834247764840510}>",embed=embed))
+        self.client.loop.create_task(channel.send(f"<@&{allow_ping_role}>",embed=embed))
 
     @commands.Cog.listener()
     async def on_ready(self):

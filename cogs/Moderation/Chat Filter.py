@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-
+from main import blacklisted_words
 
 class WordBlacklist(commands.Cog):
     def __init__(self, client, blacklist_words):
@@ -23,7 +23,7 @@ class WordBlacklist(commands.Cog):
 
 async def setup(client):
     # Set your blacklist words here
-    blacklist_words = ["nigger"]
+    blacklist_words = blacklisted_words
 
     # Add the cog to the client
     await client.add_cog(WordBlacklist(client, blacklist_words))

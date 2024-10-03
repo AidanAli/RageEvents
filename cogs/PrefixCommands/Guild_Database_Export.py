@@ -15,7 +15,6 @@ class databaseexport(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    @commands.has_permissions(manage_messages=True)
     async def export_data(self, ctx, file_format: str = 'json'):
         if file_format not in ['json', 'csv']:
             await ctx.send("Invalid file format. Please choose 'json' or 'csv'.")
