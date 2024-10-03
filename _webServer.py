@@ -3,6 +3,7 @@ from threading import Thread
 from configparser import ConfigParser
 
 config = ConfigParser()
+config.read('config.ini')
 
 # Config.ini WebServerSettings
 host = config["WebServerSettings"]['host']
