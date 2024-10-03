@@ -2,9 +2,15 @@ import sqlite3
 import discord
 from discord.ext import commands
 from discord import ui
+from configparser import ConfigParser
+config = ConfigParser()
+config.read('config.ini')
+
+DatabaseFile = config['Database']['name']
+
 
 # SQLite3 database connection
-conn = sqlite3.connect('guilddatabase.db')
+conn = sqlite3.connect(DatabaseFile)
 cursor = conn.cursor()
 
 

@@ -1,10 +1,15 @@
 import discord
+import pytz
 from discord import app_commands
 from discord.ext import commands
 import sqlite3
 from datetime import datetime
-from main import guild_id
-import pytz
+from main import guild_id, ARDatabase
+from configparser import ConfigParser
+config = ConfigParser()
+config.read('config.ini')
+
+DatabaseFile = config['BotSettings']['ArcheRageDatabase']
 
 
 class MessageLogger(commands.Cog):
@@ -119,5 +124,5 @@ class MessageLogger(commands.Cog):
 
 
 async def setup(client):
-    db_file = 'discord_bot.db'
+    db_file = ARDatabase
     await client.add_cog(MessageLogger(client, db_file),guilds=[discord.Object(id=guild_id)])

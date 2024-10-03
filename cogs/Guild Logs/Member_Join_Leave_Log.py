@@ -3,7 +3,15 @@ from discord import app_commands
 from discord.ext import commands
 import sqlite3
 from datetime import datetime, timedelta
+from configparser import ConfigParser
+
 from main import guild_id
+
+config = ConfigParser()
+config.read('config.ini')
+
+DatabaseFile = config['BotSettings']['ArcheRageDatabase']
+
 
 class MemberLogger(commands.Cog):
     def __init__(self, client, db_file):
@@ -120,5 +128,5 @@ class MemberLogger(commands.Cog):
 
 
 async def setup(client):
-    db_file = 'discord_bot.db'
+    db_file = DatabaseFile
     await client.add_cog(MemberLogger(client, db_file),guilds=[discord.Object(id=guild_id)])

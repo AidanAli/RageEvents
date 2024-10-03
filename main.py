@@ -20,6 +20,7 @@ guild_id = config['BotSettings']['Guild_Id']
 event_pings = config['BotSettings']['Event_Pings']
 allow_ping_role = config['BotSettings']['Allow_Ping_Role']
 blacklisted_words = config['BotSettings']['BlackListedWords']
+ARDatabase = config['Database']['name']
 # Discord Token
 DISCORD_TOKEN = os.environ['discordtoken']
 
