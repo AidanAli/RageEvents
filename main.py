@@ -25,7 +25,6 @@ ARDatabase = config['Database']['DBName']
 DISCORD_TOKEN = os.environ['discordtoken']
 
 
-
 intents = discord.Intents.all()
 
 
