@@ -23,7 +23,7 @@ class _LuscasAwakening(commands.Cog):
         self.scheduler.add_job(self.send_message, secondLuscas)
 
     async def send_message(self):
-        channel = self.client.get_channel(event_pings)  # replace with your channel ID
+        channel = self.client.get_channel(int(event_pings))  # replace with your channel ID
         embed = Embed(title="Luscas Awakening", description="**Spawns in 15 Minutes**", color=0xff0000)
         embed.set_image(url="https://static.wikia.nocookie.net/archeage_gamepedia/images/e/e6/Luscas_Awakening.jpg/revision/latest/scale-to-width-down/1000?cb=20191203154420")
         embed.set_thumbnail(

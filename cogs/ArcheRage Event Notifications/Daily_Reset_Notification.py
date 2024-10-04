@@ -20,7 +20,7 @@ class _DailyReset(commands.Cog):
         self.scheduler.add_job(self.send_message, dailyReset)
 
     async def send_message(self):
-        channel = self.client.get_channel(event_pings)  # replace with your channel ID
+        channel = self.client.get_channel(int(event_pings))  # replace with your channel ID
         embed = Embed(title="Daily Reset", description="in 30 Minutes", color=0xff0000)
         embed.set_thumbnail(
             url="https://1000logos.net/wp-content/uploads/2020/09/ArcheAge-logo.png")

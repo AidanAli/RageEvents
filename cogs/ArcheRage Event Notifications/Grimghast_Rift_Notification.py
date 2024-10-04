@@ -31,7 +31,7 @@ class _GrimghastRift(commands.Cog):
         self.scheduler.add_job(self.send_message, sixthGr)
 
     async def send_message(self):
-        channel = self.client.get_channel(event_pings)  # replace with your channel ID
+        channel = self.client.get_channel(int(event_pings))  # replace with your channel ID
         embed = Embed(title="Grimghast Rift", description="**Spawns in 15 Minutes**", color=0xff0000)
         embed.set_image(url="https://archeage-download1.sea.archeage.com/web/What3.PNG")
         embed.set_thumbnail(

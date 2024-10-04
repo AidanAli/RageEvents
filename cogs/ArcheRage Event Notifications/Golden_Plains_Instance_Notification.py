@@ -33,7 +33,7 @@ class _GoldenPlainsBattle(commands.Cog):
         self.scheduler.add_job(self.send_message, NightTimeHalcyonWeekend)
 
     async def send_message(self):
-        channel = self.client.get_channel(event_pings)  # replace with your channel ID
+        channel = self.client.get_channel(int(event_pings))  # replace with your channel ID
         embed = Embed(title="Golden Plains Battle", description="Starts in 15 mins", color=0xff0000)
         embed.set_image(url="https://archeage-download1.xlgames.com/web0/preview_en/res_1/images/zone/area/4.jpg")
         embed.set_thumbnail(

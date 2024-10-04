@@ -18,7 +18,7 @@ class _TreasureHuntersDay(commands.Cog):
         self.scheduler.add_job(self.send_message, Merchants_Day)
 
     async def send_message(self):
-        channel = self.client.get_channel(event_pings)  # replace with your channel ID
+        channel = self.client.get_channel(int(event_pings))  # replace with your channel ID
         embed = Embed(title="Treasures Hunter Day!", description="Started ! Grab your Quests", color=0x00FF00)
         embed.set_image(url="https://i.ibb.co/wMLfv39/37rByVp.png")
         embed.set_thumbnail(

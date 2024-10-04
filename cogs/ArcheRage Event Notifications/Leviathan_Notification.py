@@ -25,7 +25,7 @@ class LeviTimer(commands.Cog):
         self.scheduler.add_job(self.send_message, friLevi)
 
     async def send_message(self):
-        channel = self.client.get_channel(event_pings)  # replace with your channel ID
+        channel = self.client.get_channel(int(event_pings))  # replace with your channel ID
         embed = Embed(title="Leviathan Battle", description="levi Spawns in 15 Minutes", color=0xff0000)
         embed.set_image(url="https://preview.redd.it/92hvvqtj96d21.jpg?width=1920&format=pjpg&auto=webp&v=enabled&s=6bb304e42809cd456709807f51915f6fc6787553")
         embed.set_thumbnail(

@@ -22,7 +22,7 @@ class KrakenTimer(commands.Cog):
         self.scheduler.add_job(self.send_message, Sunday_kraken)
 
     async def send_message(self):
-        channel = self.client.get_channel(event_pings)  # replace with your channel ID
+        channel = self.client.get_channel(int(event_pings))  # replace with your channel ID
         embed = Embed(title="Kraken World Boss Arcadian Sea", description="Spawns in 15 Minutes", color=0xff0000)
         embed.set_image(url="https://mmos.com/wp-content/uploads/2022/07/archeage-abyssal-kraken-world-boss.jpg")
         embed.set_thumbnail(

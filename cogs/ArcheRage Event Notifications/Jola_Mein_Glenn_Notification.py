@@ -24,7 +24,7 @@ class _JMG(commands.Cog):
         self.scheduler.add_job(self.send_message, JMG_3)
 
     async def send_message(self):
-        channel = self.client.get_channel(event_pings)  # replace with your channel ID
+        channel = self.client.get_channel(int(event_pings))  # replace with your channel ID
         embed = Embed(title="Jola Meina/Glenn", description="**Spawns in 15 Minutes**", color=0xff0000)
         embed.set_image(url="https://oyster.ignimgs.com/mediawiki/apis.ign.com/archeage/4/47/Meina.jpg?width=640")
         embed.set_thumbnail(

@@ -25,7 +25,7 @@ class _AbyssalAttack(commands.Cog):
         self.scheduler.add_job(self.send_message, second_Abyssal)
 
     async def send_message(self):
-        channel = self.client.get_channel(event_pings)  # replace with your channel ID
+        channel = self.client.get_channel(int(event_pings))  # replace with your channel ID
         embed = Embed(title="Abyssal Attack", description="**Spawns in 15 Minutes**", color=0xff0000)
         embed.set_image(url="https://cdn.discordapp.com/attachments/1055620637592395857/1105317992260178000/image.png")
         embed.set_thumbnail(

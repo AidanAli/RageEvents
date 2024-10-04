@@ -37,7 +37,7 @@ class _AurorianRift(commands.Cog):
         self.scheduler.add_job(self.send_message, third_AurorianCR_AM)
 
     async def send_message(self):
-        channel = self.client.get_channel(event_pings)  # replace with your channel ID
+        channel = self.client.get_channel(int(event_pings))  # replace with your channel ID
         embed = Embed(title="Crimson Rift **Auroria**", description="**Spawns in 15 Minutes**", color=0xff0000)
         embed.set_image(url="http://archeage.mablog.eu/wp-content/uploads/2018/09/ScreenShot0126.jpg")
         embed.set_thumbnail(

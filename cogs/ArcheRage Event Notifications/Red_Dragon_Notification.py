@@ -28,7 +28,7 @@ class _RedDragonTimer(commands.Cog):
         self.scheduler.add_job(self.send_message, thirdRD)
 
     async def send_message(self):
-        channel = self.client.get_channel(event_pings)  # replace with your channel ID
+        channel = self.client.get_channel(int(event_pings))  # replace with your channel ID
         embed = Embed(title="Red Dragon", description="Starts in 15 mins", color=0xff0000)
         embed.set_image(url="https://oyster.ignimgs.com/mediawiki/apis.ign.com/archeage/3/3c/Red_dragon.jpg?width=640")
         embed.set_thumbnail(

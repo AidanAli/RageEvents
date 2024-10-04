@@ -20,7 +20,7 @@ class _RelentlessDragonsHunt(commands.Cog):
         self.scheduler.add_job(self.send_message, Merchants_Day)
 
     async def send_message(self):
-        channel = self.client.get_channel(event_pings)  # replace with your channel ID
+        channel = self.client.get_channel(int(event_pings))  # replace with your channel ID
         embed = Embed(title="Relentless Dragons Hunt", description="Starts in`15`Minutes ! Grab your Quests",
                       color=0x00FF00)
         embed.set_image(url="https://i.ibb.co/r3kWyLb/Screen-Shot0204.jpg")

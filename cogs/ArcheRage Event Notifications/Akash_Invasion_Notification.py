@@ -25,7 +25,7 @@ class _AkashInvasion(commands.Cog):
         self.scheduler.add_job(self.send_message, akashInvasionNight)
 
     async def send_message(self):
-        channel = self.client.get_channel(event_pings)  # replace with your channel ID
+        channel = self.client.get_channel(int(event_pings))  # replace with your channel ID
         embed = Embed(title="Akasch Invasion", description="in 15 Minutes", color=0xff0000)
         embed.set_image(url="https://movieview.dk/wp-content/uploads/2021/03/ScreenShot1470.jpg")
         embed.set_thumbnail(

@@ -24,7 +24,7 @@ class CharyTimer(commands.Cog):
         self.scheduler.add_job(self.send_message, satChary)
 
     async def send_message(self):
-        channel = self.client.get_channel(event_pings)  # replace with your channel ID
+        channel = self.client.get_channel(int(event_pings))  # replace with your channel ID
         embed = Embed(title="Charybdis Spawn", description="**Spawns in 15 Minutes**", color=0xff0000)
         embed.set_image(url="https://www.pcinvasion.com/wp-content/uploads/2020/03/ArcheAge-Treacherous-Tides-Run-Deep-new-raid-boss-Charybdis.jpg")
         embed.set_thumbnail(
